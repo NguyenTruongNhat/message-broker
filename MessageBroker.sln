@@ -2,9 +2,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rabbitmq", "rabbitmq", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Producer.API", "rabbitmq\Producer.API\Producer.API.csproj", "{4BA5A3CA-5FA8-45F6-B0E3-71702C74C216}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Share", "rabbitmq\Model.Share\Model.Share.csproj", "{3D80091C-B861-46A5-A047-AA6517EAFC6A}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BA5A3CA-5FA8-45F6-B0E3-71702C74C216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BA5A3CA-5FA8-45F6-B0E3-71702C74C216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BA5A3CA-5FA8-45F6-B0E3-71702C74C216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BA5A3CA-5FA8-45F6-B0E3-71702C74C216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D80091C-B861-46A5-A047-AA6517EAFC6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D80091C-B861-46A5-A047-AA6517EAFC6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D80091C-B861-46A5-A047-AA6517EAFC6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D80091C-B861-46A5-A047-AA6517EAFC6A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4BA5A3CA-5FA8-45F6-B0E3-71702C74C216} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{3D80091C-B861-46A5-A047-AA6517EAFC6A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E00E40C5-01EE-4D7B-A8CB-6E322F6772E0}
