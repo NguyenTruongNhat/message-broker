@@ -11,8 +11,8 @@ var host = Host.CreateDefaultBuilder(args)
     {
         services.AddMassTransit(x =>
         {
-            x.AddConsumer<SmsConsumer>();
-            x.AddConsumer<EmailConsumer>();
+            x.AddConsumer<Sms1Consumer>();
+            x.AddConsumer<Email1Consumer>();
 
             x.UsingRabbitMq((ctx, cfg) =>
             {
@@ -47,7 +47,7 @@ var host = Host.CreateDefaultBuilder(args)
                         x.RoutingKey = "email";
                         x.ExchangeType = ExchangeType.Direct;
                     });
-                    e.Consumer<EmailConsumer>();
+                    e.Consumer<Email1Consumer>();
                 });
 
                 // 🎯 Queue 2: SmsConsumer
@@ -58,7 +58,7 @@ var host = Host.CreateDefaultBuilder(args)
                         x.RoutingKey = "sms";
                         x.ExchangeType = ExchangeType.Direct;
                     });
-                    e.Consumer<SmsConsumer>();
+                    e.Consumer<Sms1Consumer>();
                 });
 
             });
@@ -69,7 +69,7 @@ var host = Host.CreateDefaultBuilder(args)
 Console.WriteLine(">>>>>>>>>>>   Event Consumer <<<<<<<<<<<<");
 await host.RunAsync();
 
-public class EmailConsumer : IConsumer<NotificationEvent>
+public class Email1Consumer : IConsumer<NotificationEvent>
 {
     public async Task Consume(ConsumeContext<NotificationEvent> context)
     {
@@ -78,7 +78,7 @@ public class EmailConsumer : IConsumer<NotificationEvent>
     }
 }
 
-public class SmsConsumer : IConsumer<NotificationEvent>
+public class Sms1Consumer : IConsumer<NotificationEvent>
 {
     public async Task Consume(ConsumeContext<NotificationEvent> context)
     {
