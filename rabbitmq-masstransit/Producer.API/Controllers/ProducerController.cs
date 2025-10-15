@@ -28,19 +28,28 @@ namespace Producer.API.Controllers
         }
 
         [HttpPost("event")]
-        public async Task<IActionResult> PublishProductCreated()
+        public async Task<IActionResult> PublishEvent(int type)
         {
-            var message = new ProductCreated
+            var routingKey = type switch
             {
-                ProductId = Guid.NewGuid(),
-                Name = "iPhone 16 Pro",
-                Price = 1299.99m,
-                CreatedAt = DateTime.UtcNow
+                1 => "email",
+                2 => "sms",
+                _ => throw new ArgumentException("Invalid Type")
             };
 
-            await _publish.Publish(message);
+            var message = new NotificationEvent
+            {
+                Id = Guid.NewGuid(),
+                Message = "Event Name",
+                Type = type // 1 = Email, 2 = SMS
+            };
 
-            return Ok(new { message = "ProductCreated event published", message.ProductId });
+            await _publish.Publish(message, context =>
+            {
+                context.SetRoutingKey(routingKey); // 🧭 Gán routing key
+            });
+
+            return Ok($"Notification published with routing key '{routingKey}'");
         }
 
 

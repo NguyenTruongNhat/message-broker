@@ -1,4 +1,6 @@
 ﻿using MassTransit;
+using Model.Share;
+using RabbitMQ.Client;
 
 namespace Producer.API.Extentions
 {
@@ -14,6 +16,18 @@ namespace Producer.API.Extentions
                     {
                         h.Username("sa");
                         h.Password("pass");
+                    });
+
+
+                    // Đặt tên exchange chung
+                    cfg.Message<NotificationEvent>(x =>
+                    {
+                        x.SetEntityName("notification-exchange");
+                    });
+
+                    cfg.Publish<NotificationEvent>(x =>
+                    {
+                        x.ExchangeType = ExchangeType.Direct; // sử dụng direct exchange
                     });
                 });
 

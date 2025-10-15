@@ -33,12 +33,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Direct.Consumer1.1", "rabbitmq\Consumers\Direct.Consumer1.1\Direct.Consumer1.1.csproj", "{ED3AD26E-EC08-4C45-8C73-31DCD1B86759}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rabbitmq-masstransit", "rabbitmq-masstransit", "{D23ED6B8-CF8C-400A-AD23-015DA6B3F655}"
-	ProjectSection(SolutionItems) = preProject
-		rabbitmq-masstransit\Model.Share\CommandDto.cs = rabbitmq-masstransit\Model.Share\CommandDto.cs
-		rabbitmq-masstransit\Model.Share\IMessage.cs = rabbitmq-masstransit\Model.Share\IMessage.cs
-		rabbitmq-masstransit\Model.Share\Model.Share.csproj = rabbitmq-masstransit\Model.Share\Model.Share.csproj
-		rabbitmq-masstransit\Model.Share\ProductCreated.cs = rabbitmq-masstransit\Model.Share\ProductCreated.cs
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Producer.API", "rabbitmq-masstransit\Producer.API\Producer.API.csproj", "{66C8B503-4C1B-4F7E-ABF8-04F6F762C505}"
 EndProject

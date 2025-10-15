@@ -40,13 +40,13 @@ public class UpdateProductConsumer : IConsumer<UpdateProduct>
         await Task.Delay(500);
 
         // handle after update, publish event
-        await context.Publish(new ProductUpdated2
-        {
-            ProductId = msg.ProductId,
-            Name = msg.Name,
-            Price = msg.Price,
-            UpdatedAt = DateTime.UtcNow
-        });
+        //await context.Publish(new ProductUpdated2
+        //{
+        //    ProductId = msg.ProductId,
+        //    Name = msg.Name,
+        //    Price = msg.Price,
+        //    UpdatedAt = DateTime.UtcNow
+        //});
 
         Console.WriteLine($"✅ Published ProductUpdated Event: {msg.ProductId}");
     }
